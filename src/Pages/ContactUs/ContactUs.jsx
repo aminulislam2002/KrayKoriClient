@@ -21,7 +21,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <h3 className="uppercase font-semibold text-sm dark:text-slate-200 tracking-wider">💌 EMAIL</h3>
-                  <span className="block mt-2 text-slate-500 dark:text-slate-400">forhadreza7872@gmail.com</span>
+                  <span className="block mt-2 text-slate-500 dark:text-slate-400">kraykori@gmail.com</span>
                 </div>
                 <div>
                   <h3 className="uppercase font-semibold text-sm dark:text-slate-200 tracking-wider">☎ PHONE</h3>
