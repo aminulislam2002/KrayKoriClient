@@ -18,7 +18,7 @@ const Invoice = () => {
             <img id="logo" src={logo} title="KrayKori" alt="KrayKori" className="h-12 w-auto" />
           </div>
           <div>
-            <h4 className="font-semibold text-2xl mb-0">Invoice</h4>
+            <h4 className="font-semibold text-3xl mb-0 text-[#0DA487]">Invoice</h4>
           </div>
         </div>
         <hr className="my-4 border-b-1 border-slate-400" />
@@ -55,7 +55,7 @@ const Invoice = () => {
               <p className="text-sm text-end">KrayKori</p>
               <p className="text-sm text-end">Shewrapara, Mirpur</p>
               <p className="text-sm text-end">Dhaka, Bangladesh</p>
-              <p className="text-sm text-end">+880 1798-093171 </p>
+              <p className="text-sm text-end">+880 1798-093171</p>
             </div>
           </div>
         </div>
@@ -65,19 +65,31 @@ const Invoice = () => {
           <table className="w-full mt-4">
             <thead>
               <tr>
-                <th className="border border-slate-400 text-left px-4 font-semibold text-lg">Name</th>
-                <th className="border border-slate-400 text-left px-4 font-semibold text-lg">Rate</th>
-                <th className="border border-slate-400 text-left px-4 font-semibold text-lg">QTY</th>
-                <th className="border border-slate-400 text-left px-4 font-semibold text-lg">Amount</th>
+                <th className="bg-[#0DA487] border border-[#0DA487] text-slate-50 text-left px-4 py-2 font-semibold text-lg">
+                  No
+                </th>
+                <th className="bg-[#0DA487] border border-[#0DA487] text-slate-50 text-left px-4 py-2 font-semibold text-lg">
+                  Name
+                </th>
+                <th className="bg-[#0DA487] border border-[#0DA487] text-slate-50 text-left px-4 py-2 font-semibold text-lg">
+                  Rate
+                </th>
+                <th className="bg-[#0DA487] border border-[#0DA487] text-slate-50 text-left px-4 py-2 font-semibold text-lg">
+                  QTY
+                </th>
+                <th className="bg-[#0DA487] border border-[#0DA487] text-slate-50 text-left px-4 py-2 font-semibold text-lg">
+                  Amount
+                </th>
               </tr>
             </thead>
             <tbody>
               {data?.products.map((product, index) => (
                 <tr key={index}>
-                  <td className="border border-slate-400 py-2 px-4">{product.name}</td>
-                  <td className="border border-slate-400 py-2 px-4">৳{product.originalPrice}</td>
-                  <td className="border border-slate-400 py-2 px-4">{product.quantity}</td>
-                  <td className="border border-slate-400 py-2 px-4">৳{product.originalPrice * product.quantity}</td>
+                  <td className="border border-slate-400 py-2 px-4">{index + 1}</td>
+                  <td className="border border-slate-400 py-2 px-4">{product?.name}</td>
+                  <td className="border border-slate-400 py-2 px-4">৳{product?.originalPrice}</td>
+                  <td className="border border-slate-400 py-2 px-4">{product?.quantity}</td>
+                  <td className="border border-slate-400 py-2 px-4">৳{product?.originalPrice * product?.quantity}</td>
                 </tr>
               ))}
             </tbody>

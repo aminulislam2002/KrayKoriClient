@@ -13,10 +13,10 @@ const HundredTakaItems = () => {
         const response = await fetch("https://api.kraykori.com/products");
         if (response.ok) {
           const data = await response.json();
-          // Filter products only hundred taka category products
+          // Filter products only 100 Tk Items category products
           const filterProducts = data
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-            .filter((item) => item.category === "hundred taka");
+            .filter((item) => item.category === "100 Tk Items");
           setProducts(filterProducts);
           setDisplayedProducts(filterProducts.slice(0, 10)); // Initially display 10 products
         } else {
