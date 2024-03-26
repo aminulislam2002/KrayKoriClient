@@ -31,7 +31,7 @@ const Categories = () => {
   };
 
   const filteredProducts =
-    category.toLowerCase() === "all"
+    category.toLowerCase() === "all items"
       ? products.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
       : products
           .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))

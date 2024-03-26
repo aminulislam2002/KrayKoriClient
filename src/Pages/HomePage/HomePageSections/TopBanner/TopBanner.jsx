@@ -72,14 +72,14 @@ const TopBanner = () => {
 
   // Define your category options array
   const categoryOptions = [
-    { category: "all", label: "All Categories" },
-    { category: "bag", label: "Bag Items" },
-    { category: "women", label: "Women Items" },
-    { category: "mens", label: "Mens Items" },
-    { category: "kitchen", label: "Kitchen Items" },
-    { category: "gadget", label: "Gadget Items" },
-    { category: "hundred taka", label: "100 TK Items" },
-    { category: "home improvement", label: "Home Improvement" },
+    { category: "All Items", label: "All Categories" },
+    { category: "Backpacks", label: "Backpacks" },
+    { category: "Women", label: "Women Items" },
+    { category: "Mens", label: "Mens Items" },
+    { category: "Kitchen Items", label: "Kitchen Items" },
+    { category: "Gadget Items", label: "Gadget Items" },
+    { category: "100 Tk Items", label: "100 TK Items" },
+    { category: "Home Improvement", label: "Home Improvement" },
   ];
 
   return (
