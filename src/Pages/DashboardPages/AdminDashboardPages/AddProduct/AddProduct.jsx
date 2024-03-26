@@ -6,7 +6,56 @@ import Swal from "sweetalert2";
 const AddProduct = () => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [subCategories, setSubCategories] = useState([]);
   const navigate = useNavigate();
+
+  // Define categories and their corresponding sub-categories
+  const categorySubCategoryMap = {
+    Backpacks: [
+      "Luxury Bag",
+      "vanity Bag",
+      "Tote Bag",
+      "Clutch Bag",
+      "Crossbody Bag",
+      "Shoulder Bag",
+      "Satchel Bag",
+      "School Bag",
+      "Barrel Bag",
+      "Messenger Bag",
+      "Belt Bags",
+      "Laptop Bag",
+      "Portable Hyperbaric Hag",
+      "Gym Bags",
+      "Coin Purse Bag",
+      "Bermuda Bag",
+      "New Backpacks",
+    ],
+    Women: ["Jewelry", "Bags", "Clothing", "Cosmetics", "Shoes", "New Women Items"],
+    Mens: ["Clothing", "Watches", "Shoes", "New Mens Items"],
+    "Gadget Items": ["Computer ", "Camera", "Headphone", "New Gadget Items"],
+    "Home Improvement": ["Walmart", "Home Depot", "Wood", "Furniture", "Showpiece", "New Home Improvement"],
+    "Kitchen Items": [
+      "Steel",
+      "Plastic",
+      "Home",
+      "Wood",
+      "Modern",
+      "Electronic",
+      "Cooking",
+      "Household",
+      "New Kitchen Items",
+    ],
+    "100 Tk Items": ["Spatula", "Grater", "Plastic", "Knife", "Steel", "New 100 TK Items"],
+    // Define sub-categories for other categories
+  };
+
+  // Function to handle category change
+  const handleCategoryChange = (selectedCategory) => {
+    const selectedSubCategories = categorySubCategoryMap[selectedCategory] || [];
+    setSubCategories(selectedSubCategories);
+    // Reset sub-category value
+    // setValue("subCategory", "");
+  };
 
   const image_hosting_api_key = import.meta.env.VITE_image_hosting_api_key;
   const expiration_seconds = 157680000;
@@ -21,6 +70,7 @@ const AddProduct = () => {
   const { register, handleSubmit } = useForm();
 
   const handleRegistration = async (data) => {
+    console.log(data);
     setIsLoading(true);
     try {
       const uploadImage = async (file) => {
@@ -131,37 +181,36 @@ const AddProduct = () => {
               name="category"
               {...register("category")}
               className="w-full bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              onChange={(e) => handleCategoryChange(e.target.value)}
             >
               <option value="">Select Category</option>
-              <option value="bag">Bag</option>
-              <option value="women">Women</option>
-              <option value="mens">Mens</option>
-              <option value="kitchen">Kitchen</option>
-              <option value="gadget">Gadget</option>
-              <option value="hundred taka">100 TK</option>
-              <option value="home improvement">Home Improvement</option>
+              <option value="Backpacks">Backpacks</option>
+              <option value="Women">Women</option>
+              <option value="Mens">Mens</option>
+              <option value="Gadget Items">Gadget Items</option>
+              <option value="Kitchen Items">Kitchen Items</option>
+              <option value="Home Improvement">Home Improvement</option>
+              <option value="100 Tk Items">100 Tk items</option>
             </select>
           </div>
 
           {/* Product Sub-Category according to Category */}
           <div className="w-full mb-4">
-            <label className="block text-sm font-bold mb-2" htmlFor="category">
+            <label className="block text-sm font-bold mb-2" htmlFor="subCategory">
               Sub-Category
             </label>
             <select
-              id="category"
-              name="category"
-              {...register("category")}
+              id="subCategory"
+              name="subCategory"
+              {...register("subCategory")}
               className="w-full bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select Sub-Category</option>
-              <option value="bag">Bag</option>
-              <option value="women">Women</option>
-              <option value="mens">Mens</option>
-              <option value="kitchen">Kitchen</option>
-              <option value="gadget">Gadget</option>
-              <option value="hundred taka">100 TK</option>
-              <option value="home improvement">Home Improvement</option>
+              {subCategories.map((subCategory) => (
+                <option key={subCategory} value={subCategory}>
+                  {subCategory}
+                </option>
+              ))}
             </select>
           </div>
 
