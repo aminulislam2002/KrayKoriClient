@@ -84,7 +84,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="py-5 px-5 bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50">
+    <div className="p-2 md:p-3 lg:p-5 bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50">
       <div className="text-center mb-8">
         <h1 className="text-2xl font-semibold">ADD A PRODUCT</h1>
         <div className="h-1 bg-white mt-2 w-20 mx-auto"></div>
@@ -120,10 +120,11 @@ const AddProduct = () => {
           />
         </div>
 
-        <div className="flex justify-center items-center gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-10">
+          {/* Product Category */}
           <div className="w-full mb-4">
             <label className="block text-sm font-bold mb-2" htmlFor="category">
-              Product Category
+              Category
             </label>
             <select
               id="category"
@@ -131,7 +132,7 @@ const AddProduct = () => {
               {...register("category")}
               className="w-full bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
-              <option value="">Select Product Category</option>
+              <option value="">Select Category</option>
               <option value="bag">Bag</option>
               <option value="women">Women</option>
               <option value="mens">Mens</option>
@@ -142,6 +143,29 @@ const AddProduct = () => {
             </select>
           </div>
 
+          {/* Product Sub-Category according to Category */}
+          <div className="w-full mb-4">
+            <label className="block text-sm font-bold mb-2" htmlFor="category">
+              Sub-Category
+            </label>
+            <select
+              id="category"
+              name="category"
+              {...register("category")}
+              className="w-full bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            >
+              <option value="">Select Sub-Category</option>
+              <option value="bag">Bag</option>
+              <option value="women">Women</option>
+              <option value="mens">Mens</option>
+              <option value="kitchen">Kitchen</option>
+              <option value="gadget">Gadget</option>
+              <option value="hundred taka">100 TK</option>
+              <option value="home improvement">Home Improvement</option>
+            </select>
+          </div>
+
+          {/* Product Type */}
           <div className="w-full mb-4">
             <label className="block text-sm font-bold mb-2" htmlFor="productType">
               Product Type
