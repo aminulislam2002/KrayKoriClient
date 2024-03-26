@@ -90,6 +90,7 @@ const AddProduct = () => {
       const productInfo = {
         name: data.name || "",
         category: data.category || "",
+        subCategory: data.subCategory || "",
         sizes: data.sizes || [],
         colors: data.colors || [],
         images: uploadedImageUrls || [],

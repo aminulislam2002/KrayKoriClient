@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const [product, setProduct] = useState(null);
+  const [subCategories, setSubCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   // Get the product id from the URL
@@ -29,19 +30,73 @@ const UpdateProduct = () => {
     fetchProduct();
   }, [id]);
 
+  // Define categories and their corresponding sub-categories
+  const categorySubCategoryMap = {
+    "Bag Items": [
+      "Luxury Bag",
+      "Vanity Bag",
+      "Tote Bag",
+      "Clutch Bag",
+      "Crossbody Bag",
+      "Shoulder Bag",
+      "Satchel Bag",
+      "School Bag",
+      "Barrel Bag",
+      "Messenger Bag",
+      "Belt Bags",
+      "Laptop Bag",
+      "Portable Hyperbaric Hag",
+      "Gym Bags",
+      "Coin Purse Bag",
+      "Bermuda Bag",
+      "Bagpacks Bag",
+      "New Bag Items",
+    ],
+    Women: ["Jewelry", "Bags", "Clothing", "Cosmetics", "Shoes", "New Women Items"],
+    Mens: ["Clothing", "Watches", "Shoes", "New Mens Items"],
+    "Gadget Items": ["Computer ", "Camera", "Headphone", "New Gadget Items"],
+    "Home Improvement": ["Walmart", "Home Depot", "Wood", "Furniture", "Showpiece", "New Home Improvement"],
+    "Kitchen Items": [
+      "Steel",
+      "Plastic",
+      "Home",
+      "Wood",
+      "Modern",
+      "Electronic",
+      "Cooking",
+      "Household",
+      "New Kitchen Items",
+    ],
+    "100 Tk Items": ["Spatula", "Grater", "Plastic", "Knife", "Steel", "New 100 TK Items"],
+    // Define sub-categories for other categories
+  };
+
+  // Function to handle category change
+  const handleCategoryChange = (selectedCategory) => {
+    const selectedSubCategories = categorySubCategoryMap[selectedCategory] || [];
+    setSubCategories(selectedSubCategories);
+    // Reset sub-category value
+    // setValue("subCategory", "");
+  };
+
   useEffect(() => {
     // After product data is loaded, set default values for form inputs
     if (product) {
       setValue("name", product.name || "");
       setValue("description", product.description || "");
       setValue("category", product.category || "");
-      setValue("productType", product.productType || "");
+      setValue("subCategory", product.subCategory || "");
       setValue("sizes", product.sizes || []);
       setValue("colors", product.colors || []);
       setValue("originalPrice", product.originalPrice || "");
       setValue("offerPrice", product.offerPrice || "");
       setValue("ratings", product.ratings || "");
       setValue("reviews", product.reviews || "");
+
+      // Set default value for sub-category based on the selected category
+      const selectedSubCategories = categorySubCategoryMap[product.category] || [];
+      setSubCategories(selectedSubCategories);
+      setValue("subCategory", product.subCategory || "");
     }
   }, [product, setValue]);
 
@@ -76,6 +131,7 @@ const UpdateProduct = () => {
       const productInfo = {
         name: data.name || "",
         category: data.category || "",
+        subCategory: data.subCategory || "",
         sizes: data.sizes || [],
         colors: data.colors || [],
         images: uploadedImageUrls || [],
@@ -85,7 +141,6 @@ const UpdateProduct = () => {
         reviews: data.reviews || "",
         description: data.description || "",
         productType: data.productType || "",
-        // createdAt: new Date().toISOString(), // Add current date and time
       };
 
       // Product updated to database
@@ -157,29 +212,51 @@ const UpdateProduct = () => {
           />
         </div>
 
-        <div className="flex justify-center items-center gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-10">
+          {/* Product Category */}
           <div className="w-full mb-4">
             <label className="block text-sm font-bold mb-2" htmlFor="category">
-              Product Category
+              Category
             </label>
             <select
               id="category"
               name="category"
-              defaultValue={product?.category}
               {...register("category")}
               className="w-full bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              onChange={(e) => handleCategoryChange(e.target.value)}
             >
-              <option value="">Select Product Category</option>
-              <option value="bag">Bag</option>
-              <option value="women">Women</option>
-              <option value="mens">Mens</option>
-              <option value="kitchen">Kitchen</option>
-              <option value="gadget">Gadget</option>
-              <option value="hundred taka">100 TK</option>
-              <option value="home improvement">Home Improvement</option>
+              <option value="">Select Category</option>
+              <option value="Bag Items">Bag Items</option>
+              <option value="Women">Women</option>
+              <option value="Mens">Mens</option>
+              <option value="Gadget Items">Gadget Items</option>
+              <option value="Kitchen Items">Kitchen Items</option>
+              <option value="Home Improvement">Home Improvement</option>
+              <option value="100 Tk Items">100 Tk items</option>
             </select>
           </div>
 
+          {/* Product Sub-Category according to Category */}
+          <div className="w-full mb-4">
+            <label className="block text-sm font-bold mb-2" htmlFor="subCategory">
+              Sub-Category
+            </label>
+            <select
+              id="subCategory"
+              name="subCategory"
+              {...register("subCategory")}
+              className="w-full bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            >
+              <option value="">Select Sub-Category</option>
+              {subCategories.map((subCategory) => (
+                <option key={subCategory} value={subCategory}>
+                  {subCategory}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Product Type Filed */}
           <div className="w-full mb-4">
             <label className="block text-sm font-bold mb-2" htmlFor="productType">
               Product Type
