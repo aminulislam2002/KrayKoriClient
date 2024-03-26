@@ -13,7 +13,7 @@ const AddProduct = () => {
   const categorySubCategoryMap = {
     Backpacks: [
       "Luxury Bag",
-      "vanity Bag",
+      "Vanity Bag",
       "Tote Bag",
       "Clutch Bag",
       "Crossbody Bag",

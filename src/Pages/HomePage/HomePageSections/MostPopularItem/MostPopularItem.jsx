@@ -36,7 +36,7 @@ const MostPopularItem = () => {
   };
 
   const filteredProducts =
-    selectedCategory === "all"
+    selectedCategory === "All Items"
       ? products.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, displayedProductsCount)
       : products
           .filter((product) => product?.category.toLowerCase() === selectedCategory.toLowerCase())
@@ -81,40 +81,40 @@ const MostPopularItem = () => {
                 <button
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
-                  selectedCategory === "all"
+                  selectedCategory === "All Items"
                     ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
-                  onClick={() => setSelectedCategory("all")}
+                  onClick={() => setSelectedCategory("All Items")}
                 >
-                  All items
+                  All Items
                 </button>
               </li>
               <li>
                 <button
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                  ${
-                   selectedCategory === "bag"
+                   selectedCategory === "Backpacks"
                      ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                      : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                  }
                   focus:outline-none`}
-                  onClick={() => setSelectedCategory("bag")}
+                  onClick={() => setSelectedCategory("backpacks")}
                 >
-                  Bag
+                  Backpacks
                 </button>
               </li>
               <li>
                 <button
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                  ${
-                   selectedCategory === "women"
+                   selectedCategory === "Women"
                      ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                      : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                  }
                   focus:outline-none`}
-                  onClick={() => setSelectedCategory("women")}
+                  onClick={() => setSelectedCategory("Women")}
                 >
                   Women
                 </button>
@@ -123,12 +123,12 @@ const MostPopularItem = () => {
                 <button
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
-                  selectedCategory === "mens"
+                  selectedCategory === "Mens"
                     ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
-                  onClick={() => setSelectedCategory("mens")}
+                  onClick={() => setSelectedCategory("Mens")}
                 >
                   Mens
                 </button>
@@ -137,42 +137,56 @@ const MostPopularItem = () => {
                 <button
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
-                  selectedCategory === "kitchen"
+                  selectedCategory === "Kitchen Items"
                     ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
-                  onClick={() => setSelectedCategory("kitchen")}
+                  onClick={() => setSelectedCategory("Kitchen Items")}
                 >
-                  Kitchen
+                  Kitchen Items
                 </button>
               </li>
               <li>
                 <button
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
-                  selectedCategory === "hundred taka"
+                  selectedCategory === "100 Tk Items"
                     ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
-                  onClick={() => setSelectedCategory("hundred taka")}
+                  onClick={() => setSelectedCategory("100 Tk Items")}
                 >
-                  100 TK
+                  100 Tk Items
                 </button>
               </li>
               <li>
                 <button
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
-                  selectedCategory === "gadget"
+                  selectedCategory === "Gadget Items"
                     ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
-                  onClick={() => setSelectedCategory("gadget")}
+                  onClick={() => setSelectedCategory("Gadget Items")}
                 >
-                  Gadget
+                  Gadget Items
+                </button>
+              </li>
+              <li>
+                <button
+                  className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
+                ${
+                  selectedCategory === "Home Improvement"
+                    ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
+                }
+                 focus:outline-none`}
+                  onClick={() => setSelectedCategory("Home Improvement")}
+                >
+                  Home Improvement
                 </button>
               </li>
             </ul>
