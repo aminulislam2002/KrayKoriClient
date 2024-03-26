@@ -13,7 +13,7 @@ const DeliveredOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch("https://server.shekshops.com/orders");
+        const response = await fetch("https://api.kraykori.com/orders");
         if (response.ok) {
           const data = await response.json();
           // Filter orders with orderStatus as "delivered"
@@ -33,7 +33,7 @@ const DeliveredOrders = () => {
   const handleDeleteOrder = async (id) => {
     setIsLoading(true);
     try {
-      const response = await axios.delete(`https://server.shekshops.com/deleteOrder/${id}`);
+      const response = await axios.delete(`https://api.kraykori.com/deleteOrder/${id}`);
 
       if (response.status === 200) {
         setOrders((prevOrders) => prevOrders.filter((order) => order._id !== id));

@@ -10,7 +10,7 @@ const HundredTakaItems = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://server.shekshops.com/products");
+        const response = await fetch("https://api.kraykori.com/products");
         if (response.ok) {
           const data = await response.json();
           // Filter products only hundred taka category products

@@ -25,14 +25,14 @@ const WelcomeDashboard = () => {
     const fetchProductAndOrdersCount = async () => {
       try {
         // Fetch products count
-        const productsResponse = await fetch("https://server.shekshops.com/products");
+        const productsResponse = await fetch("https://api.kraykori.com/products");
         if (productsResponse.ok) {
           const productsData = await productsResponse.json();
           setProductCount(productsData.length);
         }
 
         // Fetch orders and count orders with different statuses
-        const ordersResponse = await fetch("https://server.shekshops.com/orders");
+        const ordersResponse = await fetch("https://api.kraykori.com/orders");
         if (ordersResponse.ok) {
           const ordersData = await ordersResponse.json();
           const activeOrders = ordersData.filter(
@@ -48,7 +48,7 @@ const WelcomeDashboard = () => {
         }
 
         // Fetch customer orders and count different types of active orders
-        const customerOrdersResponse = await fetch(`https://server.shekshops.com/order?email=${user?.email}`);
+        const customerOrdersResponse = await fetch(`https://api.kraykori.com/order?email=${user?.email}`);
         if (customerOrdersResponse.ok) {
           const customerOrdersData = await customerOrdersResponse.json();
           const customerActiveOrders = customerOrdersData.filter(

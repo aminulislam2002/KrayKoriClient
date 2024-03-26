@@ -13,7 +13,7 @@ const ActiveOrders = () => {
     const fetchOrders = async () => {
       try {
         if (user && user.email) {
-          const response = await fetch(`https://server.shekshops.com/order?email=${user.email}`);
+          const response = await fetch(`https://api.kraykori.com/order?email=${user.email}`);
           if (response.ok) {
             const data = await response.json();
             const ordersData = data.filter(
@@ -52,7 +52,7 @@ const ActiveOrders = () => {
   const updateOrderStatus = (id, status) => {
     setIsLoading(true);
     axios
-      .put(`https://server.shekshops.com/orderStatus/${id}`, { status })
+      .put(`https://api.kraykori.com/orderStatus/${id}`, { status })
       .then((response) => {
         if (response.status === 200) {
           // Filter out the updated order from the orders state

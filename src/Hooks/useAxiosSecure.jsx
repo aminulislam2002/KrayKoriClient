@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   const axiosSecure = axios.create({
-    baseURL: "https://server.shekshops.com",
+    baseURL: "https://api.kraykori.com",
   });
 
   useEffect(() => {

@@ -7,7 +7,7 @@ const AllUsers = () => {
     // Fetch users from the API endpoint
     const fetchUsers = async () => {
       try {
-        const response = await fetch("https://server.shekshops.com/users");
+        const response = await fetch("https://api.kraykori.com/users");
         if (response.ok) {
           const data = await response.json();
           setUsers(data);
@@ -24,7 +24,9 @@ const AllUsers = () => {
 
   return (
     <div className="">
-      <h1 className="bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50 text-base font-semibold font-secondary text-start p-5">View All Users</h1>
+      <h1 className="bg-white text-slate-800 dark:bg-[#132337] dark:text-slate-50 text-base font-semibold font-secondary text-start p-5">
+        View All Users
+      </h1>
 
       <div className="bg-white shadow-md overflow-x-auto">
         <table className="w-full table-auto">

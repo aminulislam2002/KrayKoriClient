@@ -75,7 +75,7 @@ const ProductDetailsCard = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://server.shekshops.com/products`);
+        const response = await fetch(`https://api.kraykori.com/products`);
         if (response.ok) {
           const data = await response.json();
           const filteredProduct = data.find((product) => product?._id === id);

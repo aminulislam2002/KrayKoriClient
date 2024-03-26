@@ -25,7 +25,7 @@ const Login = () => {
     signIn(data.email, data.password)
       .then(() => {
         // Successful login
-        navigate(from, { replace: true })
+        navigate(from, { replace: true });
         setIsLoading(false);
         Swal.fire({
           icon: "success",
@@ -57,7 +57,7 @@ const Login = () => {
 
       // Always treat the user as a new user
       if (result.user) {
-        navigate(from, { replace: true })
+        navigate(from, { replace: true });
         // Show success message
         Swal.fire({
           icon: "success",
@@ -73,7 +73,7 @@ const Login = () => {
           role: "customer",
         };
 
-        const response = await fetch(`https://server.shekshops.com/postUser`, {
+        const response = await fetch(`https://api.kraykori.com/postUser`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const Login = () => {
         const responseData = await response.json();
 
         if (responseData.insertedId) {
-          navigate(from, { replace: true })
+          navigate(from, { replace: true });
         }
       }
     } catch (error) {

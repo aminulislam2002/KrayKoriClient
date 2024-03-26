@@ -14,7 +14,7 @@ const CancelledOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch("https://server.shekshops.com/orders");
+        const response = await fetch("https://api.kraykori.com/orders");
         if (response.ok) {
           const data = await response.json();
           // Filter orders with orderStatus as "cancelled"
@@ -50,7 +50,7 @@ const CancelledOrders = () => {
   const updateOrderStatus = (id, status) => {
     setIsLoading(true);
     axios
-      .put(`https://server.shekshops.com/orderStatus/${id}`, { status })
+      .put(`https://api.kraykori.com/orderStatus/${id}`, { status })
       .then((response) => {
         if (response.status === 200) {
           // Filter out the updated order from the orders state
@@ -74,7 +74,7 @@ const CancelledOrders = () => {
   const handleDeleteOrder = async (id) => {
     setIsLoading(true);
     try {
-      const response = await axios.delete(`https://server.shekshops.com/deleteOrder/${id}`);
+      const response = await axios.delete(`https://api.kraykori.com/deleteOrder/${id}`);
 
       if (response.status === 200) {
         const filterOrders = (prevOrders) => prevOrders.filter((order) => order._id !== id);

@@ -14,7 +14,7 @@ const UpdateProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://server.shekshops.com/product/${id}`);
+        const response = await fetch(`https://api.kraykori.com/product/${id}`);
         if (response.ok) {
           const data = await response.json();
           setProduct(data);
@@ -89,7 +89,7 @@ const UpdateProduct = () => {
       };
 
       // Product updated to database
-      const response = await fetch(`https://server.shekshops.com/updateProduct/${id}`, {
+      const response = await fetch(`https://api.kraykori.com/updateProduct/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

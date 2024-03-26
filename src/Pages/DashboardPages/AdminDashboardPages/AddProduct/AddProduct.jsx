@@ -52,7 +52,7 @@ const AddProduct = () => {
       };
 
       // Product added to database
-      const response = await fetch("https://server.shekshops.com/postProduct", {
+      const response = await fetch("https://api.kraykori.com/postProduct", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

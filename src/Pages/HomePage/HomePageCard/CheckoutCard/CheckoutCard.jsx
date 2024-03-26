@@ -150,7 +150,7 @@ const CheckoutCard = () => {
 
     if (confirmDelete.isConfirmed) {
       try {
-        const response = await fetch(`https://server.shekshops.com/deleteProductFromCart/${productId}`, {
+        const response = await fetch(`https://api.kraykori.com/deleteProductFromCart/${productId}`, {
           method: "DELETE",
         });
 
@@ -225,7 +225,7 @@ const CheckoutCard = () => {
     };
 
     // Assuming you have the fetch API available in your environment
-    fetch("https://server.shekshops.com/postOrder", {
+    fetch("https://api.kraykori.com/postOrder", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -14,7 +14,7 @@ const AllProducts = () => {
     // Fetch products from the API endpoint
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://server.shekshops.com/products");
+        const response = await fetch("https://api.kraykori.com/products");
         if (response.ok) {
           const data = await response.json();
           const sortData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -32,7 +32,7 @@ const AllProducts = () => {
 
   const handleDeleteProduct = async (productId) => {
     try {
-      const response = await fetch(`https://server.shekshops.com/deleteProduct/${productId}`, {
+      const response = await fetch(`https://api.kraykori.com/deleteProduct/${productId}`, {
         method: "DELETE",
       });
 
