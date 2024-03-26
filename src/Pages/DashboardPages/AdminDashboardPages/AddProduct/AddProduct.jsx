@@ -11,7 +11,7 @@ const AddProduct = () => {
 
   // Define categories and their corresponding sub-categories
   const categorySubCategoryMap = {
-    Backpacks: [
+    "Bag Items": [
       "Luxury Bag",
       "Vanity Bag",
       "Tote Bag",
@@ -28,7 +28,8 @@ const AddProduct = () => {
       "Gym Bags",
       "Coin Purse Bag",
       "Bermuda Bag",
-      "New Backpacks",
+      "Bagpacks Bag",
+      "New Bag Items",
     ],
     Women: ["Jewelry", "Bags", "Clothing", "Cosmetics", "Shoes", "New Women Items"],
     Mens: ["Clothing", "Watches", "Shoes", "New Mens Items"],
@@ -184,7 +185,7 @@ const AddProduct = () => {
               onChange={(e) => handleCategoryChange(e.target.value)}
             >
               <option value="">Select Category</option>
-              <option value="Backpacks">Backpacks</option>
+              <option value="Bag Items">Bag Items</option>
               <option value="Women">Women</option>
               <option value="Mens">Mens</option>
               <option value="Gadget Items">Gadget Items</option>

@@ -119,7 +119,7 @@ const MyCancellations = () => {
                     <button
                       onClick={() => handleConfirmed(order?._id)}
                       disabled={isLoading}
-                      className="bg-green-500 hover:bg-green-700 text-white font-semibold text-sm py-1 px-2 rounded"
+                      className="bg-green-500 hover:bg-[#0DA487] text-white font-semibold text-sm py-1 px-2 rounded"
                     >
                       Confirm Order
                     </button>

@@ -154,7 +154,7 @@ const NavBar = () => {
 
   return (
     <div className={` sticky top-0 w-full z-[1000] ${isDarkMode && "dark"}`}>
-      <div className="bg-green-700 dark:bg-[#132337] text-slate-50">
+      <div className="bg-[#0DA487] dark:bg-[#132337] text-slate-50">
         <div className="lg:w-[1200px] mx-auto">
           <div className="relative z-10">
             <div className="container mx-auto">
@@ -168,7 +168,7 @@ const NavBar = () => {
                     {isDropdownOpen && (
                       <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-green-700 dark:bg-[#132337] mt-3 z-[1] p-2 shadow rounded-md w-52"
+                        className="menu menu-sm dropdown-content bg-[#0DA487] dark:bg-[#132337] mt-3 z-[1] p-2 shadow rounded-md w-52"
                       >
                         <li>
                           {navItems.map((item, index) => (
@@ -300,7 +300,7 @@ const NavBar = () => {
                       </div>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content bg-green-700 dark:bg-slate-900 z-[1] grid grid-cols-1 gap-3 p-3 shadow rounded-md w-52"
+                        className="dropdown-content bg-[#0DA487] dark:bg-slate-900 z-[1] grid grid-cols-1 gap-3 p-3 shadow rounded-md w-52"
                       >
                         <li>
                           {user ? (
@@ -338,7 +338,7 @@ const NavBar = () => {
                         <li>
                           <button
                             onClick={toggleDarkMode}
-                            className="w-full py-2 px-3 rounded-md text-start dark:bg-slate-100 bg-green-700 text-sm text-slate-50 dark:text-slate-800 font-secondary font-semibold"
+                            className="w-full py-2 px-3 rounded-md text-start dark:bg-slate-100 bg-[#0DA487] text-sm text-slate-50 dark:text-slate-800 font-secondary font-semibold"
                           >
                             {isDarkMode ? (
                               <>

@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <div className={`${isDarkMode && "dark"}`}>
-      <div className="bg-green-700 text-slate-50 dark:bg-[#132337]">
+      <div className="bg-[#0DA487] text-slate-50 dark:bg-[#132337]">
         <div className="lg:w-[1200px] lg:mx-auto pt-5 px-2.5 md:px-5 lg:px-0 py-12 md:py-16 lg:py-20">
           <div className="relative">
             <div className="container grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">

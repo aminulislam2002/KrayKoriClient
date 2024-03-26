@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "../../HomePageCard/ProductCard/ProductCard";
 
 const MostPopularItem = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("All Items");
   const [showAllProducts, setShowAllProducts] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [products, setProducts] = useState([]);
@@ -82,7 +82,7 @@ const MostPopularItem = () => {
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
                   selectedCategory === "All Items"
-                    ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    ? "bg-[#0DA487] text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
@@ -95,14 +95,14 @@ const MostPopularItem = () => {
                 <button
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                  ${
-                   selectedCategory === "Backpacks"
-                     ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                   selectedCategory === "Bag Items"
+                     ? "bg-[#0DA487] text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                      : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                  }
                   focus:outline-none`}
-                  onClick={() => setSelectedCategory("backpacks")}
+                  onClick={() => setSelectedCategory("Bag Items")}
                 >
-                  Backpacks
+                  Bag Items
                 </button>
               </li>
               <li>
@@ -110,7 +110,7 @@ const MostPopularItem = () => {
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                  ${
                    selectedCategory === "Women"
-                     ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                     ? "bg-[#0DA487] text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                      : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                  }
                   focus:outline-none`}
@@ -124,7 +124,7 @@ const MostPopularItem = () => {
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
                   selectedCategory === "Mens"
-                    ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    ? "bg-[#0DA487] text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
@@ -138,7 +138,7 @@ const MostPopularItem = () => {
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
                   selectedCategory === "Kitchen Items"
-                    ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    ? "bg-[#0DA487] text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
@@ -152,7 +152,7 @@ const MostPopularItem = () => {
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
                   selectedCategory === "100 Tk Items"
-                    ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    ? "bg-[#0DA487] text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
@@ -166,7 +166,7 @@ const MostPopularItem = () => {
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
                   selectedCategory === "Gadget Items"
-                    ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    ? "bg-[#0DA487] text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
@@ -180,7 +180,7 @@ const MostPopularItem = () => {
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
                   selectedCategory === "Home Improvement"
-                    ? "bg-green-700 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    ? "bg-[#0DA487] text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
@@ -193,7 +193,7 @@ const MostPopularItem = () => {
           </nav>
           {/* <span className="block flex-shrink-0">
             <button
-              className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium pl-4 py-2.5 sm:pl-6 disabled:bg-opacity-90 bg-green-700 text-slate-50 hover:bg-slate-200 hover:text-slate-800 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-50 dark:hover:text-slate-800 shadow-xl w-full !pr-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
+              className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium pl-4 py-2.5 sm:pl-6 disabled:bg-opacity-90 bg-[#0DA487] text-slate-50 hover:bg-slate-200 hover:text-slate-800 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-50 dark:hover:text-slate-800 shadow-xl w-full !pr-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
               // onClick={handleSubmit(onSubmit)}
             >
               <FaFilter className="w-6 h-6" />
@@ -223,7 +223,7 @@ const MostPopularItem = () => {
       {/* Show more/less button Section */}
       <div className="flex mt-16 justify-center items-center">
         <button
-          className={`relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-green-700 text-slate-50 hover:bg-slate-200 hover:text-slate-800 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-50 dark:hover:text-slate-800 shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0
+          className={`relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-[#0DA487] text-slate-50 hover:bg-slate-200 hover:text-slate-800 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-50 dark:hover:text-slate-800 shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0
   ${filteredProducts.length >= 10 ? "block" : "hidden"}`}
           onClick={showAllProducts ? handleShowLessClick : handleShowMoreClick}
         >

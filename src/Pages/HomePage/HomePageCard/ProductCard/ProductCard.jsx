@@ -159,7 +159,7 @@ const ProductCard = ({ id, product, handleFavoriteClick, favorites }) => {
         {/* Buy Now button */}
         <div className="mt-auto w-full p-1.5 md:p-2 lg:p-2.5">
           <Link to={`/product-details/${product?._id}`}>
-            <button className="relative h-auto w-full inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-2 px-5 lg:px-10 disabled:bg-opacity-90 bg-green-700 text-slate-50 hover:bg-slate-100 hover:text-slate-800 dark:bg-slate-700 dark:text-slate-50 dark:hover:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
+            <button className="relative h-auto w-full inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-2 px-5 lg:px-10 disabled:bg-opacity-90 bg-[#0DA487] text-slate-50 hover:bg-slate-100 hover:text-slate-800 dark:bg-slate-700 dark:text-slate-50 dark:hover:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
               <IoBagCheckOutline className="w-5 h-5 me-2"></IoBagCheckOutline>
               Buy Now
             </button>
