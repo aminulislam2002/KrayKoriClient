@@ -15,7 +15,7 @@ const Invoice = () => {
         {/* Header */}
         <div className="flex justify-between items-center">
           <div>
-            <img id="logo" src={logo} title="ShekShops" alt="ShekShops" className="h-12 w-auto" />
+            <img id="logo" src={logo} title="KrayKori" alt="KrayKori" className="h-12 w-auto" />
           </div>
           <div>
             <h4 className="font-semibold text-2xl mb-0">Invoice</h4>
@@ -52,7 +52,7 @@ const Invoice = () => {
           <div className="flex justify-end items-center">
             <div>
               <h3 className="font-semibold text-lg text-end">Pay To:</h3>
-              <p className="text-sm text-end">ShekShops</p>
+              <p className="text-sm text-end">KrayKori</p>
               <p className="text-sm text-end">Shewrapara, Mirpur</p>
               <p className="text-sm text-end">Dhaka, Bangladesh</p>
               <p className="text-sm text-end">+880 1704-268005 </p>

@@ -52,9 +52,7 @@ const ForgotPassword = () => {
           <h2 className="mt-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
             Forgot password
           </h2>
-          <span className="block text-sm mt-4 text-neutral-700 sm:text-base dark:text-neutral-200">
-            Welcome to ShekShops
-          </span>
+          <span className="block text-sm mt-4 text-neutral-700 sm:text-base dark:text-neutral-200">Welcome to KrayKori</span>
         </header>
         <div className="max-w-md mx-auto space-y-6">
           <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>

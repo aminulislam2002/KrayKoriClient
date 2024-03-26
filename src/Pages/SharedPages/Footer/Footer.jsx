@@ -18,9 +18,9 @@ const Footer = () => {
                 <div className="col-span-2 md:col-span-1">
                   {/* Logo */}
                   <Link to="/" className="flex justify-start items-center font-semibold text-xl lg:text-2xl font-primary">
-                    <img src={logo} className="rounded-full w-32 h-32" alt="ShekShops Logo" />
+                    <img src={logo} className="rounded-full w-32 h-32" alt="KrayKori Logo" />
                   </Link>
-                  <span>Welcome to ShekShops - Your Ultimate Shopping Destination in Bangladesh!</span>
+                  <span>Welcome to KrayKori - Your Ultimate Shopping Destination in Bangladesh!</span>
                 </div>
               </div>
               <div className="text-sm">

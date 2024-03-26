@@ -124,7 +124,7 @@ const DashboardLayout = () => {
               <div className="w-full py-2">
                 <Link to="/dashboard" className="text-center block">
                   <h1 className="text-lg md:text-xl px-5 py-3 text-slate-800 dark:text-slate-50 font-bold font-secondary tracking-wider uppercase">
-                    ShekShops
+                    KrayKori
                   </h1>
                 </Link>
               </div>
