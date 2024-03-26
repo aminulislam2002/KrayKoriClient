@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "department": "Fashion & Apparel",
+    "linkTo": "/Fashion_Apparel",
+    "image": "https://i.ibb.co/w6PBKz6/Fashion-Apparel.png",
+    "products": "500"
+  },
+  {
+    "id": 2,
+    "department": "Beauty & Cosmetics",
+    "linkTo": "/Beauty_Cosmetics",
+    "image": "https://i.ibb.co/nbg8Gz7/Beauty-Cosmetics.png",
+    "products": "500"
+  },
+  {
+    "id": 3,
+    "department": "Sports & Fitness",
+    "linkTo": "/Sports_Fitness",
+    "image": "https://i.ibb.co/KrCPwp7/Sports-Fitness.png",
+    "products": "500"
+  },
+  {
+    "id": 4,
+    "department": "Jewelry & Accessories",
+    "linkTo": "/Jewelry_Accessories",
+    "image": "https://i.ibb.co/cwRr5PX/Jewelry-Accessories.png",
+    "products": "500"
+  },
+  {
+    "id": 5,
+    "department": "Electronics & Gadgets",
+    "linkTo": "/Electronics_Gadgets",
+    "image": "https://i.ibb.co/M6JkBhV/Electronics-Gadgets.png",
+    "products": "500"
+  }
+]
