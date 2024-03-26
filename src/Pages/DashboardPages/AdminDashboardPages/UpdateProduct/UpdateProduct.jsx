@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -31,45 +31,48 @@ const UpdateProduct = () => {
   }, [id]);
 
   // Define categories and their corresponding sub-categories
-  const categorySubCategoryMap = {
-    "Bag Items": [
-      "Luxury Bag",
-      "Vanity Bag",
-      "Tote Bag",
-      "Clutch Bag",
-      "Crossbody Bag",
-      "Shoulder Bag",
-      "Satchel Bag",
-      "School Bag",
-      "Barrel Bag",
-      "Messenger Bag",
-      "Belt Bags",
-      "Laptop Bag",
-      "Portable Hyperbaric Hag",
-      "Gym Bags",
-      "Coin Purse Bag",
-      "Bermuda Bag",
-      "Bagpacks Bag",
-      "New Bag Items",
-    ],
-    Women: ["Jewelry", "Bags", "Clothing", "Cosmetics", "Shoes", "New Women Items"],
-    Mens: ["Clothing", "Watches", "Shoes", "New Mens Items"],
-    "Gadget Items": ["Computer ", "Camera", "Headphone", "New Gadget Items"],
-    "Home Improvement": ["Walmart", "Home Depot", "Wood", "Furniture", "Showpiece", "New Home Improvement"],
-    "Kitchen Items": [
-      "Steel",
-      "Plastic",
-      "Home",
-      "Wood",
-      "Modern",
-      "Electronic",
-      "Cooking",
-      "Household",
-      "New Kitchen Items",
-    ],
-    "100 Tk Items": ["Spatula", "Grater", "Plastic", "Knife", "Steel", "New 100 TK Items"],
-    // Define sub-categories for other categories
-  };
+  const categorySubCategoryMap = useMemo(
+    () => ({
+      "Bag Items": [
+        "Luxury Bag",
+        "Vanity Bag",
+        "Tote Bag",
+        "Clutch Bag",
+        "Crossbody Bag",
+        "Shoulder Bag",
+        "Satchel Bag",
+        "School Bag",
+        "Barrel Bag",
+        "Messenger Bag",
+        "Belt Bags",
+        "Laptop Bag",
+        "Portable Hyperbaric Hag",
+        "Gym Bags",
+        "Coin Purse Bag",
+        "Bermuda Bag",
+        "Bagpacks Bag",
+        "New Bag Items",
+      ],
+      Women: ["Jewelry", "Bags", "Clothing", "Cosmetics", "Shoes", "New Women Items"],
+      Mens: ["Clothing", "Watches", "Shoes", "New Mens Items"],
+      "Gadget Items": ["Computer ", "Camera", "Headphone", "New Gadget Items"],
+      "Home Improvement": ["Walmart", "Home Depot", "Wood", "Furniture", "Showpiece", "New Home Improvement"],
+      "Kitchen Items": [
+        "Steel",
+        "Plastic",
+        "Home",
+        "Wood",
+        "Modern",
+        "Electronic",
+        "Cooking",
+        "Household",
+        "New Kitchen Items",
+      ],
+      "100 Tk Items": ["Spatula", "Grater", "Plastic", "Knife", "Steel", "New 100 TK Items"],
+      // Define sub-categories for other categories
+    }),
+    []
+  );
 
   // Function to handle category change
   const handleCategoryChange = (selectedCategory) => {
@@ -98,7 +101,7 @@ const UpdateProduct = () => {
       setSubCategories(selectedSubCategories);
       setValue("subCategory", product.subCategory || "");
     }
-  }, [product, setValue]);
+  }, [categorySubCategoryMap, product, setValue]);
 
   const [images, setImages] = useState([]);
 
