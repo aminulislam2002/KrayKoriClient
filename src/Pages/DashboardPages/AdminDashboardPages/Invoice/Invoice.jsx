@@ -55,7 +55,7 @@ const Invoice = () => {
               <p className="text-sm text-end">KrayKori</p>
               <p className="text-sm text-end">Shewrapara, Mirpur</p>
               <p className="text-sm text-end">Dhaka, Bangladesh</p>
-              <p className="text-sm text-end">+880 1704-268005 </p>
+              <p className="text-sm text-end">+880 1798-093171 </p>
             </div>
           </div>
         </div>

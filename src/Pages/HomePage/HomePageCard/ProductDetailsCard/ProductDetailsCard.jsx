@@ -347,7 +347,7 @@ const ProductDetailsCard = () => {
                   <div className="my-5">
                     <div className="">
                       <p className="text-base font-semibold text-slate-800 dark:text-slate-50">
-                        যেকোনো প্রয়োজনে Whatsapp: +880 1704-268005
+                        যেকোনো প্রয়োজনে Whatsapp: +880 1798-093171
                       </p>
                     </div>
                   </div>
