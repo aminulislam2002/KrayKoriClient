@@ -110,6 +110,7 @@ const AllProducts = () => {
             <tr>
               <th className="px-4 py-2 text-center">Name</th>
               <th className="px-4 py-2 text-center">Category</th>
+              <th className="px-4 py-2 text-center">Sub-Category</th>
               <th className="px-4 py-2 text-center">Type</th>
               <th className="px-4 py-2 text-center">Price</th>
               <th className="px-4 py-2 text-center">Offer</th>
@@ -127,6 +128,7 @@ const AllProducts = () => {
                   </Link>
                 </td>
                 <td className="px-4 py-2 text-center">{product?.category}</td>
+                <td className="px-4 py-2 text-center">{product?.subCategory}</td>
                 <td className="px-4 py-2 text-center">{product?.productType}</td>
                 <td className="px-4 py-2 text-center">৳{product?.originalPrice}</td>
                 <td className="px-4 py-2 text-center">৳{product?.offerPrice}</td>

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ProductCard from "../../HomePage/HomePageCard/ProductCard/ProductCard";
 
 const Categories = () => {
-  const { category } = useParams();
+  const { subCategory } = useParams();
   const [products, setProducts] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,12 +30,11 @@ const Categories = () => {
     );
   };
 
-  const filteredProducts =
-    category.toLowerCase() === "all items"
-      ? products.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-      : products
-          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-          .filter((product) => product.category.toLowerCase() === category.toLowerCase());
+  console.log("SubCategory", subCategory);
+
+  const filteredProducts = products
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .filter((product) => product?.subCategory?.toLowerCase() === subCategory?.toLowerCase());
 
   return (
     <div className="lg:w-[1200px] lg:mx-auto px-2.5 md:px-5 lg:px-0 my-10 md:my-14 lg:my-16">

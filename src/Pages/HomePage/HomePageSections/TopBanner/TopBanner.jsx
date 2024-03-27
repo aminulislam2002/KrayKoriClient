@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -65,14 +66,28 @@ const TopBanner = () => {
   );
 
   const [showDropdown, setShowDropdown] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(null);
 
-  const toggleDropdown = () => {
+  const toggleDropdown = (category) => {
+    setActiveCategory(category); // Set the active category when toggling the dropdown
     setShowDropdown((prevShowDropdown) => !prevShowDropdown);
+  };
+
+  const handleMouseEnterToCategory = (category) => {
+    if (!showDropdown || activeCategory !== category) {
+      // Check if the category is different
+      setActiveCategory(category);
+      setShowDropdown(true);
+    }
+  };
+
+  const handleMouseLeaveFromParent = () => {
+    setShowDropdown(false);
   };
 
   // Define your category options array
   const categoryOptions = [
-    { category: "All Items", label: "All Categories" },
+    // { category: "All Items", label: "All Categories" },
     { category: "Bag Items", label: "Bag Items" },
     { category: "Women", label: "Women Items" },
     { category: "Mens", label: "Mens Items" },
@@ -80,12 +95,53 @@ const TopBanner = () => {
     { category: "Gadget Items", label: "Gadget Items" },
     { category: "100 Tk Items", label: "100 TK Items" },
     { category: "Home Improvement", label: "Home Improvement" },
+    { category: "XYZ", label: "XYZ" },
   ];
+
+  const categorySubCategoryMap = {
+    "Bag Items": [
+      "Luxury Bag",
+      "Vanity Bag",
+      "Tote Bag",
+      "Clutch Bag",
+      "Crossbody Bag",
+      "Shoulder Bag",
+      "Satchel Bag",
+      "School Bag",
+      "Barrel Bag",
+      "Messenger Bag",
+      "Belt Bags",
+      "Laptop Bag",
+      "Portable Hyperbaric Hag",
+      "Gym Bags",
+      "Coin Purse Bag",
+      "Bermuda Bag",
+      "Bagpacks Bag",
+      "New Bag Items",
+    ],
+    Women: ["Jewelry", "Bags", "Clothing", "Cosmetics", "Shoes", "New Women Items"],
+    Mens: ["Clothing", "Watches", "Shoes", "New Mens Items"],
+    "Gadget Items": ["Computer ", "Camera", "Headphone", "New Gadget Items"],
+    "Home Improvement": ["Walmart", "Home Depot", "Wood", "Furniture", "Showpiece", "New Home Improvement"],
+    "Kitchen Items": [
+      "Steel",
+      "Plastic",
+      "Home",
+      "Wood",
+      "Modern",
+      "Electronic",
+      "Cooking",
+      "Household",
+      "New Kitchen Items",
+    ],
+    "100 Tk Items": ["Spatula", "Grater", "Plastic", "Knife", "Steel", "New 100 TK Items"],
+    // Define sub-categories for other categories
+  };
 
   return (
     <div className="lg:w-[1200px] lg:mx-auto px-2.5 md:px-5 lg:px-0 mb-10 md:mb-14 lg:mb-16 bg-white dark:bg-[#0F1824]">
       {/* Category, slider and image section */}
-      <div className="grid grid-cols-12 md:gap-5">
+      <div className="grid grid-cols-12 md:gap-5 relative">
         {/* Notice section */}
         <div className="col-span-12">
           <div className="text-slate-800 dark:text-slate-50 py-2 px-4 rounded-md">
@@ -101,22 +157,21 @@ const TopBanner = () => {
         </div>
 
         {/* Left side category part */}
-        <div className="col-span-12 md:col-span-3 lg:col-span-2">
+        <div className="col-span-12 md:col-span-3 lg:col-span-2" onMouseLeave={handleMouseLeaveFromParent}>
           <div className="border-0 md:border dark:border-slate-700 py-1">
             <ul className="list-none pl-0 py-1 hidden md:block">
-              {/* Map through the categoryOptions array to generate dynamic options */}
               {categoryOptions.map((option) => (
                 <li
-                  key={option?.category}
-                  className="lg:mb-2 md:mb-1.5 lg:py-2 md:py-1.5 lg:ps-5 md:ps-3 transition-transform transform duration-300 hover:translate-x-2 group"
+                  key={option.category}
+                  className="lg:mb-2 md:mb-1.5 lg:py-2 md:py-1.5 lg:ps-3 md:ps-3 transition-transform transform duration-300 hover:translate-x-2 group"
+                  onClick={() => toggleDropdown(option.category)}
+                  onMouseEnter={() => handleMouseEnterToCategory(option.category)}
                 >
-                  <Link
-                    to={`/category/${option?.category.toLowerCase()}`}
-                    state={{ category: option?.category.toLowerCase() }}
-                    className={`text-slate-900 dark:text-slate-50 group-hover:text-[#0099ff]`}
+                  <li
+                    className={`text-slate-900 dark:text-slate-50 group-hover:text-[#0099ff] hover:cursor-pointer flex justify-between items-center`}
                   >
-                    {option?.label}
-                  </Link>
+                    {option.label} <IoIosArrowForward className="me-1"></IoIosArrowForward>
+                  </li>
                 </li>
               ))}
             </ul>
@@ -155,6 +210,28 @@ const TopBanner = () => {
               )}
             </div>
           </div>
+
+          {/* Show here Sub-Category */}
+          {showDropdown && (
+            <div className="absolute z-40 top-[70px] left-[190px] w-48 h-[402px] border bg-white shadow overflow-hidden overflow-y-auto">
+              <ul onMouseLeave={handleMouseLeaveFromParent}>
+                {/* Check if there's an active category and render its sub-categories */}
+                {activeCategory &&
+                  categorySubCategoryMap[activeCategory]?.map((subCategory) => (
+                    <li key={subCategory} className="border-b py-2 px-3 hover:bg-gray-100">
+                      <Link
+                        to={`/category/${subCategory.toLowerCase()}`}
+                        state={{ category: activeCategory?.toLowerCase(), subCategory: subCategory.toLowerCase() }}
+                        className="block"
+                      >
+                        {subCategory}
+                        {console.log(subCategory)}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         {/* Middle - slider part */}
