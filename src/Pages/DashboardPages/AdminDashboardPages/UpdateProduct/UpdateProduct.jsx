@@ -69,6 +69,19 @@ const UpdateProduct = () => {
         "New Kitchen Items",
       ],
       "100 Tk Items": ["Spatula", "Grater", "Plastic", "Knife", "Steel", "New 100 TK Items"],
+      "Baby Items": [
+        "Clothing",
+        "Diapers",
+        "Baby Gear",
+        "Feeding",
+        "Toys",
+        "Health & Safety",
+        "Nursery",
+        "Baby Care",
+        "Gifts",
+        "Books",
+        "New Baby Items",
+      ],
       // Define sub-categories for other categories
     }),
     []
@@ -236,6 +249,7 @@ const UpdateProduct = () => {
               <option value="Kitchen Items">Kitchen Items</option>
               <option value="Home Improvement">Home Improvement</option>
               <option value="100 Tk Items">100 Tk items</option>
+              <option value="Baby Items">Baby Items</option>
             </select>
           </div>
 

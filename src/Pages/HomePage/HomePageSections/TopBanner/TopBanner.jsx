@@ -7,9 +7,9 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "./TopBanner.css";
 
-import right_image_1 from "../../../../assets/Banner/right-image-1.gif";
-import right_image_2 from "../../../../assets/Banner/right-image-2.gif";
-import right_image_3 from "../../../../assets/Banner/right-image-3.gif";
+import right_image_1 from "../../../../assets/Banner/right-image-1.png";
+import right_image_2 from "../../../../assets/Banner/right-image-2.png";
+import right_image_3 from "../../../../assets/Banner/right-image-3.png";
 
 import slider_image_1 from "../../../../assets/Banner/slider-image-1.png";
 import slider_image_2 from "../../../../assets/Banner/slider-image-2.png";
@@ -85,17 +85,26 @@ const TopBanner = () => {
     setShowDropdown(false);
   };
 
+  const handleCategoryClick = (category) => {
+    if (activeCategory === category) {
+      setShowDropdown((prevShowDropdown) => !prevShowDropdown);
+    } else {
+      setActiveCategory(category);
+      setShowDropdown(true);
+    }
+  };
+
   // Define your category options array
   const categoryOptions = [
     // { category: "All Items", label: "All Categories" },
     { category: "Bag Items", label: "Bag Items" },
     { category: "Women", label: "Women Items" },
     { category: "Mens", label: "Mens Items" },
+    { category: "Baby Items", label: "Baby Items" },
     { category: "Kitchen Items", label: "Kitchen Items" },
     { category: "Gadget Items", label: "Gadget Items" },
     { category: "100 Tk Items", label: "100 TK Items" },
     { category: "Home Improvement", label: "Home Improvement" },
-    { category: "XYZ", label: "XYZ" },
   ];
 
   const categorySubCategoryMap = {
@@ -135,6 +144,19 @@ const TopBanner = () => {
       "New Kitchen Items",
     ],
     "100 Tk Items": ["Spatula", "Grater", "Plastic", "Knife", "Steel", "New 100 TK Items"],
+    "Baby Items": [
+      "Clothing",
+      "Diapers",
+      "Baby Gear",
+      "Feeding",
+      "Toys",
+      "Health & Safety",
+      "Nursery",
+      "Baby Care",
+      "Gifts",
+      "Books",
+      "New Baby Items",
+    ],
     // Define sub-categories for other categories
   };
 
@@ -164,7 +186,7 @@ const TopBanner = () => {
                 <li
                   key={option.category}
                   className="lg:mb-2 md:mb-1.5 lg:py-2 md:py-1.5 lg:ps-3 md:ps-3 transition-transform transform duration-300 hover:translate-x-2 group"
-                  onClick={() => toggleDropdown(option.category)}
+                  onClick={() => handleCategoryClick(option.category)}
                   onMouseEnter={() => handleMouseEnterToCategory(option.category)}
                 >
                   <li
@@ -176,6 +198,7 @@ const TopBanner = () => {
               ))}
             </ul>
 
+            {/* Category part for mobile */}
             <div className="flex-shrink-0 relative block md:hidden mb-5">
               <button
                 onClick={toggleDropdown}
@@ -190,19 +213,19 @@ const TopBanner = () => {
 
               {showDropdown && (
                 <div className="absolute w-1/2 z-10 mt-2 bg-white border rounded-md shadow-lg dark:bg-slate-800">
-                  <ul className="py-1">
+                  <ul className="py-1 px-3">
                     {categoryOptions.map((option) => (
                       <li
-                        key={option?.category}
-                        className="py-2 ps-5 transition-transform transform duration-300 hover:translate-x-2 group"
+                        key={option.category}
+                        className="my-1.5 lg:mb-2 md:mb-1.5 lg:py-2 md:py-1.5 lg:ps-3 md:ps-3 transition-transform transform duration-300 hover:translate-x-2 group"
+                        onClick={() => handleCategoryClick(option.category)}
+                        onMouseEnter={() => handleMouseEnterToCategory(option.category)}
                       >
-                        <Link
-                          to={`/category/${option?.category.toLowerCase()}`}
-                          state={{ category: option?.category.toLowerCase() }}
-                          className={`text-slate-900 dark:text-slate-50 group-hover:text-[#0099ff]`}
+                        <li
+                          className={`text-slate-900 dark:text-slate-50 group-hover:text-[#0099ff] hover:cursor-pointer flex justify-between items-center`}
                         >
-                          {option?.label}
-                        </Link>
+                          {option.label} <IoIosArrowForward className="me-1"></IoIosArrowForward>
+                        </li>
                       </li>
                     ))}
                   </ul>
@@ -213,12 +236,12 @@ const TopBanner = () => {
 
           {/* Show here Sub-Category */}
           {showDropdown && (
-            <div className="absolute z-40 top-[70px] left-[190px] w-48 h-[402px] border bg-white shadow overflow-hidden overflow-y-auto">
+            <div className="absolute z-40 top-[105px] md:top-[70px] left-[190px] w-48 h-[256px] md:h-[402px] border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#0F1824] shadow overflow-hidden overflow-y-auto">
               <ul onMouseLeave={handleMouseLeaveFromParent}>
                 {/* Check if there's an active category and render its sub-categories */}
                 {activeCategory &&
                   categorySubCategoryMap[activeCategory]?.map((subCategory) => (
-                    <li key={subCategory} className="border-b py-2 px-3 hover:bg-gray-100">
+                    <li key={subCategory} className="border-b py-1 md:py-2 px-3 hover:bg-gray-100 dark:hover:bg-[#132337]">
                       <Link
                         to={`/category/${subCategory.toLowerCase()}`}
                         state={{ category: activeCategory?.toLowerCase(), subCategory: subCategory.toLowerCase() }}
