@@ -21,6 +21,8 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 const TopBanner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(null);
 
   const [sliderRef, instanceRef] = useKeenSlider(
     {
@@ -65,9 +67,6 @@ const TopBanner = () => {
     ]
   );
 
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(null);
-
   const toggleDropdown = (category) => {
     setActiveCategory(category); // Set the active category when toggling the dropdown
     setShowDropdown((prevShowDropdown) => !prevShowDropdown);
@@ -83,6 +82,7 @@ const TopBanner = () => {
 
   const handleMouseLeaveFromParent = () => {
     setShowDropdown(false);
+    setActiveCategory(null);
   };
 
   const handleCategoryClick = (category) => {
@@ -181,16 +181,16 @@ const TopBanner = () => {
         {/* Left side category part */}
         <div className="col-span-12 md:col-span-3 lg:col-span-2" onMouseLeave={handleMouseLeaveFromParent}>
           <div className="border-0 md:border dark:border-slate-700 py-1">
-            <ul className="list-none pl-0 py-1 hidden md:block">
+            <ul className="list-none pl-0 py-1 md:py-0 lg:py-1 hidden md:block">
               {categoryOptions.map((option) => (
                 <li
                   key={option.category}
-                  className="lg:mb-2 md:mb-1.5 lg:py-2 md:py-1.5 lg:ps-3 md:ps-3 transition-transform transform duration-300 hover:translate-x-2 group"
+                  className="lg:py-3 md:py-2 md:ps-3 transition-transform transform duration-300 hover:translate-x-2 group hover:cursor-pointer"
                   onClick={() => handleCategoryClick(option.category)}
                   onMouseEnter={() => handleMouseEnterToCategory(option.category)}
                 >
                   <li
-                    className={`text-slate-900 dark:text-slate-50 group-hover:text-[#0099ff] hover:cursor-pointer flex justify-between items-center`}
+                    className={`text-slate-900 dark:text-slate-50 group-hover:text-[#0099ff] flex justify-between items-center`}
                   >
                     {option.label} <IoIosArrowForward className="me-1"></IoIosArrowForward>
                   </li>
@@ -211,50 +211,54 @@ const TopBanner = () => {
                 </span>
               </button>
 
-              {showDropdown && (
-                <div className="absolute w-1/2 z-10 mt-2 bg-white border rounded-md shadow-lg dark:bg-slate-800">
-                  <ul className="py-1 px-3">
-                    {categoryOptions.map((option) => (
-                      <li
-                        key={option.category}
-                        className="my-1.5 lg:mb-2 md:mb-1.5 lg:py-2 md:py-1.5 lg:ps-3 md:ps-3 transition-transform transform duration-300 hover:translate-x-2 group"
-                        onClick={() => handleCategoryClick(option.category)}
-                        onMouseEnter={() => handleMouseEnterToCategory(option.category)}
-                      >
+              <div>
+                {showDropdown && (
+                  <div className="absolute w-1/2 z-10 mt-2 bg-white border border-slate-200 dark:border-slate-700 rounded-md shadow-lg dark:bg-[#0F1824]">
+                    <ul className="py-1 px-3">
+                      {categoryOptions.map((option) => (
                         <li
-                          className={`text-slate-900 dark:text-slate-50 group-hover:text-[#0099ff] hover:cursor-pointer flex justify-between items-center`}
+                          key={option.category}
+                          className="my-1.5 lg:mb-2 md:mb-1.5 lg:py-2 md:py-1.5 lg:ps-3 md:ps-3 transition-transform transform duration-300 hover:translate-x-2 group"
+                          onClick={() => handleCategoryClick(option.category)}
+                          onMouseEnter={() => handleMouseEnterToCategory(option.category)}
                         >
-                          {option.label} <IoIosArrowForward className="me-1"></IoIosArrowForward>
+                          <li
+                            className={`text-slate-900 dark:text-slate-50 group-hover:text-[#0099ff] hover:cursor-pointer flex justify-between items-center`}
+                          >
+                            {option.label} <IoIosArrowForward className="me-1"></IoIosArrowForward>
+                          </li>
                         </li>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
           {/* Show here Sub-Category */}
-          {showDropdown && (
-            <div className="absolute z-40 top-[105px] md:top-[70px] left-[190px] w-48 h-[256px] md:h-[402px] border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#0F1824] shadow overflow-hidden overflow-y-auto">
-              <ul onMouseLeave={handleMouseLeaveFromParent}>
-                {/* Check if there's an active category and render its sub-categories */}
-                {activeCategory &&
-                  categorySubCategoryMap[activeCategory]?.map((subCategory) => (
-                    <li key={subCategory} className="border-b py-1 md:py-2 px-3 hover:bg-gray-100 dark:hover:bg-[#132337]">
-                      <Link
-                        to={`/category/${subCategory.toLowerCase()}`}
-                        state={{ category: activeCategory?.toLowerCase(), subCategory: subCategory.toLowerCase() }}
-                        className="block"
-                      >
-                        {subCategory}
-                        {console.log(subCategory)}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            </div>
-          )}
+          <div>
+            {showDropdown && activeCategory && (
+              <div className="absolute z-40 top-[105px] md:top-[70px] left-[190px] md:left-[180px] lg:left-[190px] w-48 h-[256px] md:h-[330px] lg:h-[402px] border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#0F1824] shadow overflow-hidden overflow-y-auto transition-opacity duration-500 transform translate-y-0 opacity-100 rounded-md">
+                <ul onMouseLeave={handleMouseLeaveFromParent}>
+                  {/* Check if there's an active category and render its sub-categories */}
+                  {activeCategory &&
+                    categorySubCategoryMap[activeCategory]?.map((subCategory) => (
+                      <li key={subCategory} className="border-b py-1 md:py-2 px-3 hover:bg-gray-100 dark:hover:bg-[#132337]">
+                        <Link
+                          to={`/category/${subCategory.toLowerCase()}`}
+                          state={{ category: activeCategory?.toLowerCase(), subCategory: subCategory.toLowerCase() }}
+                          className="block"
+                        >
+                          {subCategory}
+                          {console.log(subCategory)}
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Middle - slider part */}
